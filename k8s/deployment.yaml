@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p-and-l-dashboard
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: p-and-l-dashboard
+  template:
+    metadata:
+      labels:
+        app: p-and-l-dashboard
+    spec:
+      containers:
+      - name: p-and-l-dashboard
+        image: your-dockerhub-username/p-and-l-dashboard:latest
+        ports:
+        - containerPort: 8050
